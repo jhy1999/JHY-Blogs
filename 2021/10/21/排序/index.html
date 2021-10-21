@@ -13,15 +13,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="排序算法1.冒泡排序12345678910111213141516171819const bubbleSort &#x3D; (arr) &#x3D;&gt; &amp;#123;  if (arr.length &lt;&#x3D; 1) return;  for (let i &#x3D; 0; i &lt; arr.length; i++) &amp;#123;    let hasChange &#x3D; false;    for (let j &#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="g:/Typora_note/javaScript/assets/9916080-f0605d250bd43468.gif">
-<meta property="og:image" content="g:/Typora_note/javaScript/assets/9916080-07b27d3525f3c32c.gif">
+<meta property="og:image" content="http://example.com/2021/10/21/assets/9916080-f0605d250bd43468.gif">
+<meta property="og:image" content="http://example.com/2021/10/21/assets/9916080-07b27d3525f3c32c.gif">
 <meta property="og:image" content="https://i.loli.net/2021/09/28/ZcmEBy9HGh6n2oe.gif">
 <meta property="article:published_time" content="2021-10-21T07:17:38.627Z">
-<meta property="article:modified_time" content="2021-09-29T08:33:01.057Z">
+<meta property="article:modified_time" content="2021-10-21T09:36:34.304Z">
 <meta property="article:author" content="mu_lou_mu_di">
 <meta property="article:tag" content="数据结构与算法实现">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="g:/Typora_note/javaScript/assets/9916080-f0605d250bd43468.gif">
+<meta name="twitter:image" content="http://example.com/2021/10/21/assets/9916080-f0605d250bd43468.gif">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -106,7 +106,7 @@
 <p>比较相邻的元素，如果前一个比后一个大，交换之。</p>
 <p>第一趟排序第 1 个和第 2 个一对，比较与交换，随后第 2 个和第 3 个一对比较交换，这样直到倒数第 2 个和最后 1 个，将最大的数移动到最后一位。</p>
 <p>第二趟将第二大的数移动至倒数第二位<br>……<br>因此需要 n-1 趟；</p>
-<p><img src="G:\Typora_note\javaScript\assets\9916080-f0605d250bd43468.gif"></p>
+<p><img src="../assets/9916080-f0605d250bd43468.gif"></p>
 <h2 id="2-插入排序"><a href="#2-插入排序" class="headerlink" title="2.插入排序"></a>2.插入排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> insertionSort = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> temp = arr[i];</span><br><span class="line">    <span class="keyword">let</span> j = i - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 若arr[i]前有大于arr[i]的值的化，向后移位，腾出空间，直到一个&lt;=arr[i]的值</span></span><br><span class="line">    <span class="keyword">for</span> (j; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[j] &gt; temp) &#123;</span><br><span class="line">        arr[j + <span class="number">1</span>] = arr[j];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(arr);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> testSort = [<span class="number">4</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</span><br><span class="line">insertionSort(testSort);</span><br></pre></td></tr></table></figure>
 
 <p>算法描述：</p>
@@ -115,13 +115,12 @@
 <p>step3 如果已排序元素 A 大于待排序的元素 B，则将 A 往后移动一位。</p>
 <p>step4 重复 step3，直到找到元素 A&lt;=B(待排序)时或者有序序列全部被扫描。将待排序元素 A 插入。</p>
 <p>重复 step2—step</p>
-<p><img src="G:\Typora_note\javaScript\assets\9916080-07b27d3525f3c32c.gif"></p>
+<p><img src="../assets/9916080-07b27d3525f3c32c.gif"></p>
 <h2 id="3-选择排序"><a href="#3-选择排序" class="headerlink" title="3.选择排序"></a>3.选择排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> selectionSort = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="comment">// 需要注意这里的边界, 因为需要在内层进行 i+1后的循环，所以外层需要 数组长度-1</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> minIndex = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;</span><br><span class="line">        minIndex = j; <span class="comment">// 找到整个数组的最小值</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> temp = arr[i];</span><br><span class="line">    arr[i] = arr[minIndex];</span><br><span class="line">    arr[minIndex] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(arr);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> testSelect = [<span class="number">4</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">12</span>];</span><br><span class="line">selectionSort(testSelect);</span><br></pre></td></tr></table></figure>
 
 <p>算法描述：</p>
 <p>每一次遍历待排序的序列，记录最小（大）值的下标，和待排序第一个元素进行比较，如果小（大）与待排序第一个元素，交换</p>
 <p><img src="https://i.loli.net/2021/09/28/ZcmEBy9HGh6n2oe.gif"></p>
-<h2 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4.快速排序"></a>4.快速排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -268,5 +267,5 @@
 
 
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 </html>
