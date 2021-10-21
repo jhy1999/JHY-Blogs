@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>JS中的三个点(...)是什么玩意儿 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="三个点（…）真名叫扩展运算符，是在 ES6 中新增加的内容，它可以在函数调用&#x2F;数组构造时，将数组表达式或者 string 在语法层面展开；还可以在构造字面量对象时将对象表达式按照 key-value 的方式展开 在数组中的使用: 12let number &#x3D; [1, 2, 3, 4, 5, 6];console.log(...num); &#x2F;&#x2F;1 2 3 4 5 6  在对象中使用: 12let m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的三个点(...)是什么玩意儿">
+<meta property="og:url" content="http://example.com/2021/10/21/%E5%85%B3%E4%BA%8EJavaScript%E4%B8%AD%E7%9A%84%E4%B8%89%E4%B8%AA%E7%82%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="三个点（…）真名叫扩展运算符，是在 ES6 中新增加的内容，它可以在函数调用&#x2F;数组构造时，将数组表达式或者 string 在语法层面展开；还可以在构造字面量对象时将对象表达式按照 key-value 的方式展开 在数组中的使用: 12let number &#x3D; [1, 2, 3, 4, 5, 6];console.log(...num); &#x2F;&#x2F;1 2 3 4 5 6  在对象中使用: 12let m">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-21T07:17:38.573Z">
+<meta property="article:modified_time" content="2021-09-29T08:24:06.717Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-关于JavaScript中的三个点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/10/21/%E5%85%B3%E4%BA%8EJavaScript%E4%B8%AD%E7%9A%84%E4%B8%89%E4%B8%AA%E7%82%B9/" class="article-date">
+  <time class="dt-published" datetime="2021-10-21T07:17:38.573Z" itemprop="datePublished">2021-10-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JS中的三个点(...)是什么玩意儿
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>三个点（…）真名叫扩展运算符，是在 ES6 中新增加的内容，它可以在函数调用/数组构造时，将数组表达式或者 string 在语法层面展开；还可以在构造字面量对象时将对象表达式按照 key-value 的方式展开</p>
+<p>在数组中的使用:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> number = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="built_in">console</span>.log(...num); <span class="comment">//1 2 3 4 5 6</span></span><br></pre></td></tr></table></figure>
+
+<p>在对象中使用:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> man = &#123; <span class="attr">name</span>: <span class="string">&quot;chuichui&quot;</span>, <span class="attr">height</span>: <span class="number">176</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(&#123; ...man &#125;); <span class="comment">// &#123;name:&#x27;chuichui&#x27;,height:176&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>它的功能远不止这些，还可以用于复制、转化类型、合并等操作</p>
+<p>复制:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组的复制</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">&quot;hello&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [...arr1];</span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">// [&#x27;hello&#x27;]</span></span><br><span class="line"><span class="comment">//对象的复制</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123; <span class="attr">name</span>: <span class="string">&quot;chuichui&quot;</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123; ...obj1 &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//  &#123;name:&#x27;chuichui&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>合并:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组的合并</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">&quot;hello&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">&quot;chuichui&quot;</span>];</span><br><span class="line"><span class="comment">//使用conact方法</span></span><br><span class="line"><span class="keyword">var</span> newarr = arr1.concat(arr2);</span><br><span class="line"><span class="built_in">console</span>.log(newarr); <span class="comment">//[&#x27;hello&#x27;,&#x27;chuichui&#x27;]</span></span><br><span class="line"><span class="comment">//ES5</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1, arr2);</span><br><span class="line"><span class="built_in">console</span>.log(arr1);</span><br><span class="line"><span class="comment">//使用...</span></span><br><span class="line"><span class="keyword">var</span> mergeArr = [...arr1, ...arr2];</span><br><span class="line"><span class="built_in">console</span>.log(mergeArr); <span class="comment">// [&#x27;hello&#x27;,&#x27;chuichui&#x27;]</span></span><br><span class="line"><span class="comment">// 对象合并</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123; <span class="attr">name</span>: <span class="string">&quot;chuichui&quot;</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123; <span class="attr">height</span>: <span class="number">176</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> mergeObj = &#123; ...obj1, ...obj2 &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(mergeObj); <span class="comment">// &#123;name: &quot;chuichui&quot;, height: 176&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>字符转数组:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [...<span class="string">&quot;hello&quot;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">// [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p>替换 ES5 中的 apply:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5 的写法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y, z</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y + z;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(f.apply(<span class="literal">null</span>, args)); <span class="comment">//3</span></span><br><span class="line"><span class="comment">// ES6 的写法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y, z</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y + z;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(f(...args)); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>求数组中的最大值:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">14</span>, <span class="number">2</span>, <span class="number">77</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5 的写法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr)); <span class="comment">//77</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 的写法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(...arr)); <span class="comment">//77</span></span><br><span class="line"><span class="comment">//  等同于</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(<span class="number">14</span>, <span class="number">3</span>, <span class="number">77</span>)); <span class="comment">//77</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/21/%E5%85%B3%E4%BA%8EJavaScript%E4%B8%AD%E7%9A%84%E4%B8%89%E4%B8%AA%E7%82%B9/" data-id="ckv0mh0t00011bsv15pd548dm" data-title="JS中的三个点(...)是什么玩意儿" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/21/%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          函数节流与防抖
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/21/vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8iconfont/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue项目中使用iconfont</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/" rel="tag">数据结构与算法实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E8%AE%B0/" rel="tag">随记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/" style="font-size: 10px;">数据结构与算法实现</a> <a href="/tags/%E9%9A%8F%E8%AE%B0/" style="font-size: 15px;">随记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/">浏览器兼容性处理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86/">数据代理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/%E6%8E%92%E5%BA%8F/">排序</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">字符串操作</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/%E5%9C%B0%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8%E9%80%89%E6%8B%A9/">地区三级联动选择</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
